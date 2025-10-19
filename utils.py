@@ -197,6 +197,24 @@ def run_customer_doc_chain(param):
 
     return ai_msg["answer"]
 
+# サンプルアプリ２「問い合わせ対応自動化AIエージェント」Tool追加分
+def run_faq_doc_chain(param):
+    """
+    よくある質問（FAQ）に関するデータ参照に特化したTool設定用の関数
+
+    Args:
+        param: ユーザー入力値
+    
+    Returns:
+        LLMからの回答
+    """
+    # よくある質問（FAQ）に関するデータ参照に特化したChainを実行してLLMからの回答取得
+    ai_msg = st.session_state.faq_doc_chain.invoke({"input": param, "chat_history": st.session_state.chat_history})
+
+    # 会話履歴への追加
+    st.session_state.chat_history.extend([HumanMessage(content=param), AIMessage(content=ai_msg["answer"])])
+
+    return ai_msg["answer"]
 
 def delete_old_conversation_log(result):
     """

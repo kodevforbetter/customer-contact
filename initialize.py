@@ -14,7 +14,8 @@ import streamlit as st
 import tiktoken
 from langchain_openai import ChatOpenAI
 from langchain_community.callbacks.streamlit import StreamlitCallbackHandler
-from langchain import SerpAPIWrapper
+# from langchain import SerpAPIWrapper
+from langchain_community.utilities import SerpAPIWrapper
 from langchain.tools import Tool
 from langchain.agents import AgentType, initialize_agent
 import utils
@@ -119,6 +120,8 @@ def initialize_agent_executor():
     st.session_state.customer_doc_chain = utils.create_rag_chain(ct.DB_CUSTOMER_PATH)
     st.session_state.service_doc_chain = utils.create_rag_chain(ct.DB_SERVICE_PATH)
     st.session_state.company_doc_chain = utils.create_rag_chain(ct.DB_COMPANY_PATH)
+    # サンプルアプリ２「問い合わせ対応自動化AIエージェント」Tool追加分
+    st.session_state.faq_doc_chain = utils.create_rag_chain(ct.DB_FAQ_PATH)
     st.session_state.rag_chain = utils.create_rag_chain(ct.DB_ALL_PATH)
 
     # Web検索用のToolを設定するためのオブジェクトを用意
@@ -142,6 +145,12 @@ def initialize_agent_executor():
             name=ct.SEARCH_CUSTOMER_COMMUNICATION_INFO_TOOL_NAME,
             func=utils.run_customer_doc_chain,
             description=ct.SEARCH_CUSTOMER_COMMUNICATION_INFO_TOOL_DESCRIPTION
+        ),
+        # サンプルアプリ２「問い合わせ対応自動化AIエージェント」Tool追加分
+        Tool(
+            name=ct.SEARCH_FAQ_INFO_TOOL_NAME,
+            func=utils.run_faq_doc_chain,
+            description=ct.SEARCH_FAQ_INFO_TOOL_DESCRIPTION
         ),
         # Web検索用のTool
         Tool(

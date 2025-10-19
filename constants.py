@@ -88,11 +88,13 @@ AI_AGENT_MAX_ITERATIONS = 5
 
 DB_SERVICE_PATH = "./.db_service"
 DB_CUSTOMER_PATH = "./.db_customer"
+DB_FAQ_PATH = "./.db_faq" # サンプルアプリ２「問い合わせ対応自動化AIエージェント」Tool追加分
 
 DB_NAMES = {
     DB_COMPANY_PATH: f"{RAG_TOP_FOLDER_PATH}/company",
     DB_SERVICE_PATH: f"{RAG_TOP_FOLDER_PATH}/service",
-    DB_CUSTOMER_PATH: f"{RAG_TOP_FOLDER_PATH}/customer"
+    DB_CUSTOMER_PATH: f"{RAG_TOP_FOLDER_PATH}/customer",
+    DB_FAQ_PATH: f"{RAG_TOP_FOLDER_PATH}/faq" # サンプルアプリ２「問い合わせ対応自動化AIエージェント」Tool追加分
 }
 
 AI_AGENT_MODE_ON = "利用する"
@@ -104,6 +106,9 @@ SEARCH_SERVICE_INFO_TOOL_NAME = "search_service_info_tool"
 SEARCH_SERVICE_INFO_TOOL_DESCRIPTION = "自社サービス「EcoTee」に関する情報を参照したい時に使う"
 SEARCH_CUSTOMER_COMMUNICATION_INFO_TOOL_NAME = "search_customer_communication_tool"
 SEARCH_CUSTOMER_COMMUNICATION_INFO_TOOL_DESCRIPTION = "顧客とのやりとりに関する情報を参照したい時に使う"
+# サンプルアプリ２「問い合わせ対応自動化AIエージェント」Tool追加分
+SEARCH_FAQ_INFO_TOOL_NAME = "search_faq_tool"
+SEARCH_FAQ_INFO_TOOL_DESCRIPTION = "自社サービスに関するよくある質問（FAQ）を参照したい時に使う"
 SEARCH_WEB_INFO_TOOL_NAME = "search_web_tool"
 SEARCH_WEB_INFO_TOOL_DESCRIPTION = "自社サービス「HealthX」に関する質問で、Web検索が必要と判断した場合に使う"
 
