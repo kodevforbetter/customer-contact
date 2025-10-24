@@ -1,0 +1,4 @@
+[INFO] 2025-10-21 21:28:56,384 line 42, in <module>, session_id=5ff1b69331324e06af1793055735ffff: アプリが起動されました。
+[INFO] 2025-10-21 21:29:46,650 line 42, in <module>, session_id=5ff1b69331324e06af1793055735ffff: アプリが起動されました。
+[ERROR] 2025-10-21 22:35:16,819 line 35, in <module>, session_id=0c7d032d597a4943a2ce679c522864cf: 初期化処理に失敗しました。
+'./.db_all'
